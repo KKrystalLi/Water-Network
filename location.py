@@ -50,6 +50,7 @@ class Water:
 
         return visited
 
+
     def edge_list(self):
         for nodeid,node in self.nodes.items():
             print(f"ID: {nodeid} -> ", end="")
@@ -93,6 +94,22 @@ river.connect_nodes(35,2)
 
 print("Distance between Node 1 and Node 2:", river.get_distance(1, 2))
 print("DFS Traversal:")
+
+
 river.dfs(1)
+# a method for travel all nodes
+### some expain for dfs(1)
+#Suppose  3 nodes connected as `1 -> 2 -> 3`.
+#1. `dfs(1)`.
+#2. Node 1 is not in the `visited` set. Add it, print its details.
+#3. Check Node 1's edges. We find Node 2. do`dfs(2)`.
+#4. Node 2 is not in the `visited` set. Add it, print its details.
+#5. Check Node 2's edges. We find Node 3. do `dfs(3)`.
+#6. Node 3 is not in the `visited` set. Add it, print its details.
+#7. Node 3 has no unvisited edgess. Return from `dfs(3)`.
+#8. Return from `dfs(2)`.
+#9. Return from `dfs(1)`.
+#The output will display the details of the nodes in the order they were visited: Node 1, Node 2, and then Node 3.
+
 
 print(river.edge_list())
