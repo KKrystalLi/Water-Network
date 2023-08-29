@@ -50,7 +50,6 @@ class Water:
 
         return visited
 
-
     def edge_list(self):
         for nodeid,node in self.nodes.items():
             print(f"ID: {nodeid} -> ", end="")
@@ -58,7 +57,7 @@ class Water:
                 print(f"{edge.id} ", end="")
             print()
 
-# Example usage:
+#add the node and t
 
 river = Water()
 n1 = river.add_node(1, 70, 100, 'headwater')
@@ -75,9 +74,21 @@ n59 = river.add_node(59, 190, 205, 'junction')
 n35 = river.add_node(35, 220, 185, 'junction')
 n17 = river.add_node(17, 225, 290, 'headwater')
 
-n18 = river.add_node(17, 240, 140, 'headwater')
+n18 = river.add_node(18, 240, 140, 'headwater')
 n2 = river.add_node(2, 130, 290, 'junction')
+n19 = river.add_node(19, 330, 185, 'headwater')
 
+n36 = river.add_node(36, 275, 250, 'junction')
+n20 = river.add_node(20, 330, 200, 'headwater')
+n37 = river.add_node(37, 290, 270, 'junction')
+
+n16 = river.add_node(16, 245, 330, 'headwater')
+n39 = river.add_node(39, 320, 290, 'junction')
+n55 = river.add_node(5, 360, 260, 'junction')
+n38 = river.add_node(38, 325, 335, 'junction')
+
+
+#connect the node
 river.connect_nodes(1, 42)
 river.connect_nodes(42, 33)
 river.connect_nodes(42, 3)
@@ -90,12 +101,21 @@ river.connect_nodes(59,35)
 river.connect_nodes(59,17)
 river.connect_nodes(35,18)
 river.connect_nodes(35,2)
+river.connect_nodes(35,19)
+river.connect_nodes(3,36)
+river.connect_nodes(36,20)
+river.connect_nodes(36,37)
+river.connect_nodes(37,16)
+river.connect_nodes(37,39)
+river.connect_nodes(39,55)
+river.connect_nodes(39,38)
 
 
+# try to calculate the distance
 print("Distance between Node 1 and Node 2:", river.get_distance(1, 2))
 print("DFS Traversal:")
 
-
+# travel the nodes
 river.dfs(1)
 # a method for travel all nodes
 ### some expain for dfs(1)
@@ -111,5 +131,5 @@ river.dfs(1)
 #9. Return from `dfs(1)`.
 #The output will display the details of the nodes in the order they were visited: Node 1, Node 2, and then Node 3.
 
-
+# check the edge
 print(river.edge_list())
